@@ -50,7 +50,7 @@ color: #bdd0db;
 }
 
 .archive-list > li .cbp_tmtime span:last-child {
-font-size: 1.2em;
+font-size: 1.2em!important;
 color: #9BCD9B;
 }
 
@@ -110,7 +110,7 @@ border-right-color: RGBA(255, 125, 73, 0.75);
 @media screen and (max-width: 65.375em) {
 
 .archive-list > li .cbp_tmtime span:last-child {
-    font-size: 1.2em;
+    font-size: 1.2em!important;
 }
 }
 
