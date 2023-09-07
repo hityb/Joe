@@ -18,6 +18,19 @@
   <script src="<?php _getAssets('assets/lib/clipboard@2.0.11/clipboard.min.js'); ?>"></script>
   <script src="<?php _getAssets('assets/lib/prism/prism.min.js'); ?>"></script>
   <script src="<?php _getAssets('assets/js/joe.post_page.min.js'); ?>"></script>
+  <?php $colors = array('0396FF', 'EA5455', '7367F0', '32CCBC', 'F6416C',
+	'28C76F', '9F44D3', '623AA2', 'F55555', '8C1BAB', '9708CC',
+	'736EFE', 'E96D71', '3677FF', 'FA016D', '0E197D', 'DE4313',
+	'5961F9', 'FD6585', '465EFB', '0D25B9', 'FFC600', '1D6FA3',
+	'000DFF', '513162', '58CFFB', 'FA742B', '1E2AD2', 'B3315F', 'FF52E5', 'BC78EC', '49C628', 'C32BAC', '1904E5', 'F067B4') ?>
+  <style>
+  <?php
+		foreach($colors as $key => $value){
+			/*echo ".after-{$value}{border-right-color:#$value!important;}";*/
+			echo ".cbp_tmlabel-bg-{$value}{background:#$value!important;}";
+		}
+  ?>
+  </style>
 </head>
 
 <body>
@@ -57,6 +70,7 @@
             $j = 0;
             $last_month = '';
             $output = '<div id="archives" class="archives">';
+			
             while ($archives->next()):
                 $this_month = date("Y年m月", $archives->created);
                 if ($this_month != $last_month) {
@@ -69,9 +83,10 @@
                   $output .= '<div class="archive-month"><h2>' . $this_month . '</h2><ul class="archive-list">';
                   $last_month = $this_month;
                 }
-                $output .= '<li><time class="cbp_tmtime"><span>' 
+				$color = $colors[rand(0, count($colors)-1)];
+                $output .= '<li><time class="cbp_tmtime"><span style="color:#'.$color.'">'
                   . date("d日: ", $archives->created) . 
-                  '</span></time><div class="cbp_tmlabel"><a href="' 
+                  '</span></time><div class="cbp_tmlabel cbp_tmlabel-bg-'.$color.'" data-color="'.$color.'"><a href="' 
                   . $archives->permalink . 
                   '">' . $archives->title .
                   '</a></div></li>';                
