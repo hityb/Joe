@@ -29,8 +29,6 @@ elseif (strpos($fontUrl, 'svg') !== false) $fontFormat = 'svg';
     font-style: normal;
     font-display: swap;
     src: url('<?php echo $fontUrl ?>');
-    <?php if ($fontFormat) : ?>src: url('<?php echo $fontUrl ?>') format('<?php echo $fontFormat ?>');
-    <?php endif; ?>
   }
 
   body {
