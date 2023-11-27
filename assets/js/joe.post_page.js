@@ -14,12 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
 			data: { routeType: 'baidu_record', site: window.location.href },
 			success(res) {
 				if (res.data && res.data === '已收录') {
-					$('#Joe_Baidu_Record').css('color', '#67C23A');
-					$('#Joe_Baidu_Record').html('已收录');
+					console.debug('已收录');
 				} else {
 					/* 如果填写了Token，则自动推送给百度 */
 					if (Joe.BAIDU_PUSH) {
-						$('#Joe_Baidu_Record').html('<span style="color: #E6A23C">未收录，推送中...</span>');
 						const _timer = setTimeout(function () {
 							$.ajax({
 								url: Joe.BASE_API,
@@ -32,17 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
 								},
 								success(res) {
 									if (res.data.error) {
-										$('#Joe_Baidu_Record').html('<span style="color: #F56C6C">推送失败，请检查！</span>');
+										console.error('推送失败，请检查！');
 									} else {
-										$('#Joe_Baidu_Record').html('<span style="color: #67C23A">推送成功！</span>');
+										console.debug('推送成功！');
 									}
 								}
 							});
 							clearTimeout(_timer);
 						}, 1000);
-					} else {
-						const url = `https://ziyuan.baidu.com/linksubmit/url?sitename=${encodeURI(window.location.href)}`;
-						$('#Joe_Baidu_Record').html(`<a target="_blank" href="${url}" rel="noopener noreferrer nofollow" style="color: #F56C6C">未收录，提交收录</a>`);
 					}
 				}
 			}
