@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="foot">
-            <div class="owo joe_owo__contain"></div>
+            <?php /**<div class="owo joe_owo__contain"></div>*/ ?>
             <div class="submit">
               <span class="cancle joe_comment__cancle">取消</span>
               <button type="submit">发送评论</button>
