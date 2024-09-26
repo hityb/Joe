@@ -2,7 +2,7 @@
 
 > 一款基于 Typecho 博客的双栏极致优化主题
 
-- QQ 交流群：305615006
+- QQ 交流群：1011268145
 - Git 仓库：https://github.com/HaoOuBa/Joe
 - 主题宗旨：简洁、超强、开源、精华
 
